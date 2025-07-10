@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +6,202 @@
     <meta name="keywords" content="catálogo otaku, placas anime, designs exclusivos, Naruto, One Piece, Dragon Ball, Attack on Titan, Demon Slayer">
     <title>Catálogo - Otaku City | +1500 Designs Exclusivos</title>
     <link rel="stylesheet" href="../css/style.css">
+	    <style>
+               
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--cor-fundo);
+            color: var(--cor-texto);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+            flex: 1;
+        }
+        
+        .buttons-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+            align-items: center; /* Centraliza os botões */
+        }
+        
+        /* Botões - versão mobile primeiro */
+        .anime-button {
+            display: flex;
+            align-items: center;
+            width: 90%; /* Largura reduzida para 90% da tela */
+            max-width: 400px; /* Largura máxima */
+            height: 70px;
+            padding: 0 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--sombra);
+            text-align: left;
+        }
+        
+        .anime-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
+            z-index: 1;
+        }
+        
+        .anime-button span {
+            position: relative;
+            z-index: 2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 10px;
+        }
+        
+        .anime-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .anime-button:active {
+            transform: translateY(1px);
+        }
+        
+        /* Imagens de fundo dos botões */
+        .anime-button {
+            background-size: cover;
+            background-position: right center;
+            background-repeat: no-repeat;
+        }
+        
+        /* Classes específicas para cada anime */
+        .naruto { background-image: url('https://i.ibb.co/zVp9pbqR/naruto.jpg') !important; }
+        .dragon-ball { background-image: url('https://i.ibb.co/pvwYVMqT/d.jpg') !important; }
+        .one-piece { background-image: url('https://i.ibb.co/hJpTMCG5/o.jpg') !important; }
+        .attack-on-titan { background-image: url('https://i.ibb.co/pj444tVv/a.jpg') !important; }
+        .my-hero-academia { background-image: url('https://i.ibb.co/jkW0s02B/b.jpg') !important; }
+        .demon-slayer { background-image: url('https://i.ibb.co/SDdzYmXZ/ds.jpg') !important; }
+        .arcane { background-image: url('https://i.ibb.co/JwymXkv8/arcane-capa.png') !important; }
+        .berserk { background-image: url('https://i.ibb.co/3yGzvsvx/ber.png') !important; }
+        .bleach { background-image: url('https://i.ibb.co/HTVq4VHQ/bleach.png') !important; }
+        .cavaleiros-zodiaco { background-image: url('https://i.ibb.co/39V1Xv6r/cdz.png') !important; }
+        .chainsaw-man { background-image: url('https://i.ibb.co/Q3PYtDgt/csm.png') !important; }
+        .evangelion { background-image: url('https://i.ibb.co/HjMwggJ/evan.png') !important; }
+        .genshin-impact { background-image: url('https://i.ibb.co/sJ2RnJcw/genshin.png') !important; }
+        .ghibli { background-image: url('https://i.ibb.co/qM7m81qL/gibli.png') !important; }
+        .haikyuu { background-image: url('https://i.ibb.co/WvBz48th/haiki.png') !important; }
+        .hanako { background-image: url('https://i.ibb.co/VYYCpthJ/hanako.png') !important; }
+        .hello-kitty { background-image: url('https://i.ibb.co/Qv36pgjr/hello.png') !important; }
+        .hunter-x-hunter { background-image: url('https://i.ibb.co/60gnM0Y1/hunter.png') !important; }
+        .jujutsu-kaisen { background-image: url('https://i.ibb.co/4ZvZTjnV/jujutso.png') !important; }
+        .fullmetal { background-image: url('https://i.ibb.co/dd0Pr3q/full.png') !important; }
+        .nanatsu-no-taizai { background-image: url('https://i.ibb.co/m5yQvqSp/nanatsu.png') !important; }
+        .one-punch-man { background-image: url('https://i.ibb.co/tPcgHCGy/onepunch.png') !important; }
+        .pokemon { background-image: url('https://i.ibb.co/LhB8FjKS/pokemon.png') !important; }
+        .procurados-one-piece { background-image: url('https://i.ibb.co/KzwQvymD/wanted.png') !important; }
+        .sailor-moon { background-image: url('https://i.ibb.co/FbBt1vS4/sailor.png') !important; }
+        .solo-leveling { background-image: url('https://i.ibb.co/mrndg3FQ/solo.png') !important; }
+        .spy-x-family { background-image: url('https://i.ibb.co/gMfhTWX1/spy.png') !important; }
+        .tokyo-revengers { background-image: url('https://i.ibb.co/N2TSCC3P/tokyo.png') !important; }        
+        .black-clover { background-image: url('https://i.ibb.co/h1nTmdFz/Black-Clover.png') !important; }
+        .tate-no-yuusha { background-image: url('https://i.ibb.co/7J5hqHpb/Tate-no-Yusha.png') !important; }
+        .fairy-tail { background-image: url('https://i.ibb.co/35xDN3b9/Fairy-Tail.png') !important; }
+        .blue-lock { background-image: url('https://i.ibb.co/pBVGvRtR/Blue-Lock.png') !important; }
+        .dorohedoro { background-image: url('https://i.ibb.co/rR895dXz/Dorohedoro.png') !important; }
+        .dr-stone { background-image: url('https://i.ibb.co/fVwjPNSw/Dr-Stone.png') !important; }
+        .death-note { background-image: url('https://i.ibb.co/V6xj8KF/Death-Note.png') !important; }
+        .kakegurui { background-image: url('https://i.ibb.co/KcJpnKsQ/Kakegurui.png') !important; }
+        .violet-evergarden { background-image: url('https://i.ibb.co/HLjyK0MY/Violet-Evergarden.png') !important; }
+        .yu-yu-hakusho { background-image: url('https://i.ibb.co/20PqFYsc/Yu-Yu-Hakusho.png') !important; }
+        .inuyasha { background-image: url('https://i.ibb.co/HLMq4r5h/Inuyasha.png') !important; }
+        .rurouni-kenshin { background-image: url('https://i.ibb.co/CCt9zyW/Rurouni-Kenshin.png') !important; }
+        .jojos-bizarre-adventure { background-image: url('https://i.ibb.co/ksWMYVWR/Jo-Jos-Bizarre-Adventure.png') !important; }
+        .nana { background-image: url('https://i.ibb.co/JF70B86B/Nana.png') !important; }
+        .vocaloid { background-image: url('https://i.ibb.co/V0ZYGw4z/Vocaloid.png') !important; }
+        .record-of-ragnarok { background-image: url('https://i.ibb.co/XZBFNZGX/Record-of-Ragnarok.png') !important; }
+        .mob-psycho-100 { background-image: url('https://i.ibb.co/pjJF1HRf/Mob-Psycho-100.png') !important; }
+        .frieren { background-image: url('https://i.ibb.co/xSrLmTKw/Frieren.png') !important; }
+        .vagabond { background-image: url('https://i.ibb.co/8nv4GRSN/Vagabond.png') !important; }
+        .cardcaptor-sakura { background-image: url('https://i.ibb.co/Z6bcKQr8/Cardcaptor-Sakura.png') !important; }
+        .sword-art-online { background-image: url('https://i.ibb.co/VW2zQNFW/Sword-Art-Online.png') !important; }
+        .stitch { background-image: url('https://i.ibb.co/6R0Jfd1M/Stitch.png') !important; }
+        .bungo-stray-dogs { background-image: url('https://i.ibb.co/xqJGb3Lr/Bungo-Stray-Dogs.png') !important; }
+        .tokyo-ghoul { background-image: url('https://i.ibb.co/NnFS1V7H/Tokyo-Ghoul.png') !important; }
+        .overlord { background-image: url('https://i.ibb.co/mrr16zH6/Overlord.png') !important; }
+        .hellsing { background-image: url('https://i.ibb.co/xKGH9T7S/Hellsing.png') !important; }
+        .black-butler { background-image: url('https://i.ibb.co/XZqR7c0b/Black-Butler.png') !important; }
+        .animes-variados { background-image: url('https://i.ibb.co/NdZtntV0/Miscelanea.png') !important; }
+        .diarios-de-uma-apotecaria { background-image: url('https://i.ibb.co/qF4SFJbJ/Diarios-de-uma-Apotecaria.png') !important; }
+        .your-name { background-image: url('https://i.ibb.co/Tx1QM7hr/Your-Name.png') !important; }
+        .dandadan { background-image: url('https://i.ibb.co/xKc2T5wk/DanDaDan.png') !important; }
+                              
+        /* Versão para tablets */
+        @media (min-width: 600px) {
+            .buttons-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                align-items: stretch;
+            }
+            
+            .anime-button {
+                width: 100%; /* Ocupa toda a largura do grid */
+            }
+            
+            header {
+                height: 180px;
+            }
+            
+            .catalog-title {
+                font-size: 3em;
+            }
+        }
+        
+        /* Versão para desktop */
+        @media (min-width: 900px) {
+            .container {
+                max-width: 900px;
+            }
+            
+            .buttons-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+            }
+            
+            header {
+                height: 200px;
+            }
+            
+            .catalog-title {
+                font-size: 3.5em;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,129 +220,240 @@
         <p class="page-subtitle">Mais de 1500 designs exclusivos organizados por anime. Encontre a placa perfeita para sua decoração!</p>
     </section>
 
-    <section class="catalog-grid">
-        <div class="catalog-card">
-            <h3>🍥 NARUTO</h3>
-            <p>Designs exclusivos do universo ninja mais famoso do mundo. Personagens icônicos, jutsus e símbolos em alta qualidade.</p>
-            <a href="https://otakucitybr.github.io/Naruto/" target="_blank" class="cta-button">VER DESIGNS</a>
+        <div class="buttons-grid">
+            
+            <button class="anime-button one-piece" onclick="window.location.href='https://otakucitybr.github.io/One_Piece/'">
+                <span>One Piece</span>
+            </button>
+            
+            <button class="anime-button naruto" onclick="window.location.href='https://otakucitybr.github.io/Naruto/'">
+                <span>Naruto</span>
+            </button>
+            
+            <button class="anime-button demon-slayer" onclick="window.location.href='https://otakucitybr.github.io/kny/'">
+                <span>Demon Slayer</span>
+            </button>
+            
+            <button class="anime-button solo-leveling" onclick="window.location.href='https://otakucitybr.github.io/Solo/'">
+                <span>Solo Leveling</span>
+            </button>
+            
+            <button class="anime-button jujutsu-kaisen" onclick="window.location.href='https://otakucitybr.github.io/Jujutsu/'">
+                <span>Jujutsu Kaisen</span>
+            </button>
+            
+            <button class="anime-button procurados-one-piece" onclick="window.location.href='https://otakucitybr.github.io/Wanted/'">
+                <span>WANTED One Piece</span>
+            </button>
+            
+            <button class="anime-button diarios-de-uma-apotecaria" onclick="window.location.href='https://otakucitybr.github.io/Diarios-de-uma-Apotecaria/'">
+                <span>Diários de uma Apotecária</span>
+            </button>
+            
+            <button class="anime-button frieren" onclick="window.location.href='https://otakucitybr.github.io/Frieren/'">
+                <span>Frieren</span>
+            </button>
+            
+            <button class="anime-button dandadan" onclick="window.location.href='https://otakucitybr.github.io/DanDaDan/'">
+                <span>DanDaDan</span>
+            </button>
+            
+            <button class="anime-button pokemon" onclick="window.location.href='https://otakucitybr.github.io/Pokemon/'">
+                <span>Pokémon</span>
+            </button>
+            
+            <button class="anime-button hello-kitty" onclick="window.location.href='https://otakucitybr.github.io/HelloKitty/'">
+                <span>Hello Kitty</span>
+            </button>
+            
+            <button class="anime-button stitch" onclick="window.location.href='https://otakucitybr.github.io/Stitch/'">
+                <span>Stitch</span>
+            </button>
+            
+            <button class="anime-button hanako" onclick="window.location.href='https://otakucitybr.github.io/Hanako/'">
+                <span>Hanako-kun</span>
+            </button>
+            
+            <button class="anime-button dragon-ball" onclick="window.location.href='https://otakucitybr.github.io/Dragon_Ball/'">
+                <span>Dragon Ball</span>
+            </button>
+            
+            <button class="anime-button attack-on-titan" onclick="window.location.href='https://otakucitybr.github.io/Attack_on_Titan/'">
+                <span>Attack on Titan</span>
+            </button>
+            
+            <button class="anime-button chainsaw-man" onclick="window.location.href='https://otakucitybr.github.io/CSM/'">
+                <span>ChainSaw Man</span>
+            </button>
+            
+            <button class="anime-button hunter-x-hunter" onclick="window.location.href='https://otakucitybr.github.io/HxH/'">
+                <span>Hunter x Hunter</span>
+            </button>
+            
+            <button class="anime-button fullmetal" onclick="window.location.href='https://otakucitybr.github.io/Full/'">
+                <span>Fullmetal Alchemist</span>
+            </button>
+            
+            <button class="anime-button haikyuu" onclick="window.location.href='https://otakucitybr.github.io/Haikyu/'">
+                <span>Haikyuu!!</span>
+            </button>
+            
+            <button class="anime-button sword-art-online" onclick="window.location.href='https://otakucitybr.github.io/Sword-Art-Online/'">
+                <span>Sword Art Online</span>
+            </button>
+            
+            <button class="anime-button my-hero-academia" onclick="window.location.href='https://otakucitybr.github.io/BnH/'">
+                <span>My Hero Academia</span>
+            </button>
+            
+            <button class="anime-button nanatsu-no-taizai" onclick="window.location.href='https://otakucitybr.github.io/Nanatsu/'">
+                <span>Nanatsu No Taizai</span>
+            </button>
+            
+            <button class="anime-button arcane" onclick="window.location.href='https://otakucitybr.github.io/ar/'">
+                <span>Arcane</span>
+            </button>
+            
+            <button class="anime-button spy-x-family" onclick="window.location.href='https://otakucitybr.github.io/Spy/'">
+                <span>Spy x Family</span>
+            </button>
+            
+            <button class="anime-button tokyo-revengers" onclick="window.location.href='https://otakucitybr.github.io/Revengers/'">
+                <span>Tokyo Revengers</span>
+            </button>
+            
+            <button class="anime-button black-clover" onclick="window.location.href='https://otakucitybr.github.io/Black-Clover/'">
+                <span>Black Clover</span>
+            </button>
+            
+            <button class="anime-button fairy-tail" onclick="window.location.href='https://otakucitybr.github.io/Fairy-Tail/'">
+                <span>Fairy Tail</span>
+            </button>
+            
+            <button class="anime-button blue-lock" onclick="window.location.href='https://otakucitybr.github.io/Blue-Lock/'">
+                <span>Blue Lock</span>
+            </button>
+            
+            <button class="anime-button berserk" onclick="window.location.href='https://otakucitybr.github.io/berserk/'">
+                <span>Berserk</span>
+            </button>
+            
+            <button class="anime-button vagabond" onclick="window.location.href='https://otakucitybr.github.io/Vagabond/'">
+                <span>Vagabond</span>
+            </button>
+            
+            <button class="anime-button death-note" onclick="window.location.href='https://otakucitybr.github.io/Death-Note/'">
+                <span>Death Note</span>
+            </button>
+            
+            <button class="anime-button jojos-bizarre-adventure" onclick="window.location.href='https://otakucitybr.github.io/JoJos-Bizarre-Adventure/'">
+                <span>JoJo's Bizarre Adventure</span>
+            </button>
+            
+            <button class="anime-button bleach" onclick="window.location.href='https://otakucitybr.github.io/bleach/'">
+                <span>Bleach</span>
+            </button>
+            
+            <button class="anime-button evangelion" onclick="window.location.href='https://otakucitybr.github.io/Evan/'">
+                <span>Evangelion</span>
+            </button>
+            
+            <button class="anime-button one-punch-man" onclick="window.location.href='https://otakucitybr.github.io/One/'">
+                <span>One Punch Man</span>
+            </button>
+            
+            <button class="anime-button mob-psycho-100" onclick="window.location.href='https://otakucitybr.github.io/Mob-Psycho-100/'">
+                <span>Mob Psycho 100</span>
+            </button>
+            
+            <button class="anime-button tokyo-ghoul" onclick="window.location.href='https://otakucitybr.github.io/Tokyo-Ghoul/'">
+                <span>Tokyo Ghoul</span>
+            </button>
+            
+            <button class="anime-button hellsing" onclick="window.location.href='https://otakucitybr.github.io/Hellsing/'">
+                <span>Hellsing</span>
+            </button>
+            
+            <button class="anime-button cavaleiros-zodiaco" onclick="window.location.href='https://otakucitybr.github.io/CDZ/'">
+                <span>Cavaleiros do Zodíaco</span>
+            </button>
+            
+            <button class="anime-button yu-yu-hakusho" onclick="window.location.href='https://otakucitybr.github.io/Yu-Yu-Hakusho/'">
+                <span>Yu Yu Hakusho</span>
+            </button>
+            
+            <button class="anime-button inuyasha" onclick="window.location.href='https://otakucitybr.github.io/Inuyasha/'">
+                <span>Inuyasha</span>
+            </button>
+            
+            <button class="anime-button rurouni-kenshin" onclick="window.location.href='https://otakucitybr.github.io/Rurouni-Kenshin/'">
+                <span>Rurouni Kenshin</span>
+            </button>
+            
+            <button class="anime-button sailor-moon" onclick="window.location.href='https://otakucitybr.github.io/Sailor/'">
+                <span>Sailor Moon</span>
+            </button>
+            
+            <button class="anime-button cardcaptor-sakura" onclick="window.location.href='https://otakucitybr.github.io/Cardcaptor-Sakura/'">
+                <span>Cardcaptor Sakura</span>
+            </button>
+            
+            <button class="anime-button genshin-impact" onclick="window.location.href='https://otakucitybr.github.io/GenshinImpact/'">
+                <span>Genshin Impact</span>
+            </button>
+            
+            <button class="anime-button tate-no-yuusha" onclick="window.location.href='https://otakucitybr.github.io/Tate-no-Yuusha/'">
+                <span>Tate no Yūsha</span>
+            </button>
+            
+            <button class="anime-button dorohedoro" onclick="window.location.href='https://otakucitybr.github.io/Dorohedoro/'">
+                <span>Dorohedoro</span>
+            </button>
+            
+            <button class="anime-button dr-stone" onclick="window.location.href='https://otakucitybr.github.io/Dr-Stone/'">
+                <span>Dr. Stone</span>
+            </button>
+            
+            <button class="anime-button kakegurui" onclick="window.location.href='https://otakucitybr.github.io/Kakegurui/'">
+                <span>Kakegurui</span>
+            </button>
+            
+            <button class="anime-button violet-evergarden" onclick="window.location.href='https://otakucitybr.github.io/Violet-Evergarden/'">
+                <span>Violet Evergarden</span>
+            </button>
+            
+            <button class="anime-button nana" onclick="window.location.href='https://otakucitybr.github.io/Nana/'">
+                <span>Nana</span>
+            </button>
+            
+            <button class="anime-button vocaloid" onclick="window.location.href='https://otakucitybr.github.io/Vocaloid/'">
+                <span>Vocaloid</span>
+            </button>
+            
+            <button class="anime-button record-of-ragnarok" onclick="window.location.href='https://otakucitybr.github.io/Record-of-Ragnarok/'">
+                <span>Record of Ragnarok</span>
+            </button>
+            
+            <button class="anime-button bungo-stray-dogs" onclick="window.location.href='https://otakucitybr.github.io/Bungo-Stray-Dogs/'">
+                <span>Bungo Stray Dogs</span>
+            </button>
+            
+            <button class="anime-button overlord" onclick="window.location.href='https://otakucitybr.github.io/Overlord/'">
+                <span>Overlord</span>
+            </button>
+            
+            <button class="anime-button black-butler" onclick="window.location.href='https://otakucitybr.github.io/Black-Butler/'">
+                <span>Black Butler</span>
+            </button>
+            
+            <button class="anime-button your-name" onclick="window.location.href='https://otakucitybr.github.io/Your-Name/'">
+                <span>Your Name</span>
+            </button>
+            
+            <button class="anime-button animes-variados" onclick="window.location.href='https://otakucitybr.github.io/Miscelanea/'">
+                <span>Animes Variados</span>
+            </button>
         </div>
-
-        <div class="catalog-card">
-            <h3>🏴‍☠️ ONE PIECE</h3>
-            <p>Navegue pelo mundo dos piratas com designs dos Chapéus de Palha, Yonkous, Almirantes e muito mais.</p>
-            <a href="https://otakucitybr.github.io/One_Piece/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>🐉 DRAGON BALL</h3>
-            <p>Designs poderosos do universo Dragon Ball com Goku, Vegeta, transformações e esferas do dragão.</p>
-            <a href="https://otakucitybr.github.io/Dragon_Ball/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>⚡ SOLO LEVELING</h3>
-            <p>Designs épicos do caçador mais forte com Sung Jin-Woo, sombras e momentos icônicos do manhwa.</p>
-            <a href="https://otakucitybr.github.io/Solo/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>⚔️ VAGABOND</h3>
-            <p>Arte única do clássico mangá de samurai com Musashi Miyamoto em designs minimalistas e impactantes.</p>
-            <a href="https://otakucitybr.github.io/Vagabond/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>🌸 DIÁRIOS DE UMA APOTECÁRIA</h3>
-            <p>Designs delicados e elegantes do anime que conquistou o mundo com Maomao e sua sabedoria.</p>
-            <a href="https://otakucitybr.github.io/Diarios-de-uma-Apotecaria/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>🧝‍♀️ FRIEREN</h3>
-            <p>Designs mágicos e nostálgicos da jornada imortal de Frieren e seus companheiros.</p>
-            <a href="https://otakucitybr.github.io/Frieren/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>🗡️ DEMON SLAYER</h3>
-            <p>Designs respiratórios dos caçadores de demônios com Tanjiro, Nezuko e os Hashiras.</p>
-            <a href="https://otakucitybr.github.io/kny/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>🌿 STUDIO GHIBLI</h3>
-            <p>Designs mágicos dos filmes do Studio Ghibli com Totoro, Chihiro, Howl e outros personagens queridos.</p>
-            <a href="https://otakucitybr.github.io/Ghibli/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>⚔️ BERSERK</h3>
-            <p>Designs sombrios e intensos do universo brutal de Guts e Griffith em alta definição.</p>
-            <a href="https://otakucitybr.github.io/berserk/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>📓 DEATH NOTE</h3>
-            <p>Designs psicológicos com Light, L, Ryuk e os mistérios do caderno da morte.</p>
-            <a href="https://otakucitybr.github.io/Death-Note/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>🎀 HELLO KITTY</h3>
-            <p>Designs fofos e coloridos da gatinha mais famosa do mundo em versões exclusivas.</p>
-            <a href="https://otakucitybr.github.io/HelloKitty/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>🤖 EVANGELION</h3>
-            <p>Designs futuristas dos EVAs, Angels e do complexo universo de Neon Genesis Evangelion.</p>
-            <a href="https://otakucitybr.github.io/ar/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>🔥 ATTACK ON TITAN</h3>
-            <p>Designs épicos dos titãs, Eren, Mikasa, Levi e os momentos mais marcantes da série.</p>
-            <a href="https://otakucitybr.github.io/AOT/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>💪 MY HERO ACADEMIA</h3>
-            <p>Designs heroicos com Deku, All Might, Bakugo e os quirks mais poderosos da U.A.</p>
-            <a href="https://otakucitybr.github.io/MHA/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>👻 JUJUTSU KAISEN</h3>
-            <p>Designs amaldiçoados com Yuji, Gojo, Sukuna e as técnicas mais poderosas do mundo jujutsu.</p>
-            <a href="https://otakucitybr.github.io/JJK/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>⚡ POKEMON</h3>
-            <p>Designs nostálgicos e coloridos dos pokémons mais queridos de todas as gerações.</p>
-            <a href="https://otakucitybr.github.io/Pokemon/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>🎵 BOCCHI THE ROCK</h3>
-            <p>Designs musicais e divertidos da banda Kessoku com Bocchi, Nijika, Ryo e Kita.</p>
-            <a href="https://otakucitybr.github.io/Bocchi/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-
-        <div class="catalog-card">
-            <h3>🌟 OUTROS ANIMES</h3>
-            <p>Designs de diversos outros animes populares: Tokyo Ghoul, Fullmetal Alchemist, Hunter x Hunter e muito mais!</p>
-            <a href="https://otakucitybr.github.io/Outros/" target="_blank" class="cta-button">VER DESIGNS</a>
-        </div>
-    </section>
-
-    <section class="catalog-cta">
-        <h2>🎨 NÃO ENCONTROU O QUE PROCURA?</h2>
-        <p>Fazemos qualquer design personalizado! Envie sua imagem e transformamos em uma placa exclusiva.</p>
-        <a href="../pages/contato.html" class="whatsapp-button">
-            💬 SOLICITAR DESIGN PERSONALIZADO
-        </a>
-    </section>
 
     <footer>
         <h3>💎 QUALIDADE GARANTIDA</h3>
