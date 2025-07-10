@@ -606,25 +606,24 @@ footer {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 80px;
+    height: 75px;
     padding: 0 25px;
     background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: white;
     font-weight: 700;
-    font-size: 1.2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     overflow: hidden;
     position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     text-align: left;
     background-size: cover;
     background-position: right center;
     background-repeat: no-repeat;
-    backdrop-filter: blur(2px);
 }
 
 .anime-button::before {
@@ -635,19 +634,19 @@ footer {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, 
-        rgba(0,0,0,0.9) 0%, 
-        rgba(0,0,0,0.7) 40%, 
-        rgba(0,0,0,0.3) 70%, 
+        rgba(0,0,0,0.85) 0%, 
+        rgba(0,0,0,0.6) 40%, 
+        rgba(0,0,0,0.25) 70%, 
         rgba(0,0,0,0) 100%);
     z-index: 1;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .anime-button:hover::before {
     background: linear-gradient(90deg, 
-        rgba(255,45,84,0.8) 0%, 
-        rgba(255,45,84,0.6) 40%, 
-        rgba(255,45,84,0.3) 70%, 
+        rgba(255,45,84,0.7) 0%, 
+        rgba(255,45,84,0.5) 40%, 
+        rgba(255,45,84,0.2) 70%, 
         rgba(0,0,0,0) 100%);
 }
 
@@ -659,18 +658,19 @@ footer {
     text-overflow: ellipsis;
     padding-right: 20px;
     font-family: 'Poppins', sans-serif;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
+    font-weight: 600;
 }
 
 .anime-button:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(255, 45, 84, 0.4);
-    border-color: var(--primary);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 6px 20px rgba(255, 45, 84, 0.25);
+    border-color: rgba(255, 45, 84, 0.4);
 }
 
 .anime-button:active {
-    transform: translateY(-1px) scale(1.01);
-    box-shadow: 0 5px 15px rgba(255, 45, 84, 0.3);
+    transform: translateY(-1px) scale(1.005);
+    box-shadow: 0 3px 12px rgba(255, 45, 84, 0.2);
 }
 
 /* Classes específicas para cada anime - mantendo as imagens originais */
@@ -847,10 +847,10 @@ footer {
     }
 
     .anime-button {
-        height: 70px;
+        height: 65px;
         padding: 0 20px;
-        font-size: 1.1rem;
-        border-radius: 12px;
+        font-size: 1rem;
+        border-radius: 10px;
     }
 
     header {
@@ -939,10 +939,10 @@ footer {
 
 @media (max-width: 480px) {
     .anime-button {
-        height: 65px;
+        height: 60px;
         padding: 0 18px;
-        font-size: 1rem;
-        border-radius: 10px;
+        font-size: 0.95rem;
+        border-radius: 8px;
     }
 
     .anime-button span {
@@ -1032,9 +1032,9 @@ footer {
 
 @media (max-width: 360px) {
     .anime-button {
-        height: 60px;
+        height: 55px;
         padding: 0 15px;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     header {
@@ -1091,8 +1091,8 @@ footer {
     }
     
     .anime-button {
-        height: 85px;
-        font-size: 1.3rem;
+        height: 78px;
+        font-size: 1.15rem;
     }
 }
 
@@ -1104,9 +1104,9 @@ footer {
     }
     
     .anime-button {
-        height: 90px;
-        font-size: 1.4rem;
-        border-radius: 18px;
+        height: 82px;
+        font-size: 1.2rem;
+        border-radius: 14px;
     }
     
     .catalog-section {
