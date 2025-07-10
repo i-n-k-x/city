@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -6,202 +7,6 @@
     <meta name="keywords" content="catálogo otaku, placas anime, designs exclusivos, Naruto, One Piece, Dragon Ball, Attack on Titan, Demon Slayer">
     <title>Catálogo - Otaku City | +1500 Designs Exclusivos</title>
     <link rel="stylesheet" href="../css/style.css">
-	    <style>
-               
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            margin: 0;
-            padding: 0;
-            background: var(--cor-fundo);
-            color: var(--cor-texto);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 15px;
-            flex: 1;
-        }
-        
-        .buttons-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-            align-items: center; /* Centraliza os botões */
-        }
-        
-        /* Botões - versão mobile primeiro */
-        .anime-button {
-            display: flex;
-            align-items: center;
-            width: 90%; /* Largura reduzida para 90% da tela */
-            max-width: 400px; /* Largura máxima */
-            height: 70px;
-            padding: 0 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            border: none;
-            color: white;
-            font-weight: bold;
-            font-size: 1.1em;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            position: relative;
-            box-shadow: var(--sombra);
-            text-align: left;
-        }
-        
-        .anime-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
-            z-index: 1;
-        }
-        
-        .anime-button span {
-            position: relative;
-            z-index: 2;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding-right: 10px;
-        }
-        
-        .anime-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-        }
-        
-        .anime-button:active {
-            transform: translateY(1px);
-        }
-        
-        /* Imagens de fundo dos botões */
-        .anime-button {
-            background-size: cover;
-            background-position: right center;
-            background-repeat: no-repeat;
-        }
-        
-        /* Classes específicas para cada anime */
-        .naruto { background-image: url('https://i.ibb.co/zVp9pbqR/naruto.jpg') !important; }
-        .dragon-ball { background-image: url('https://i.ibb.co/pvwYVMqT/d.jpg') !important; }
-        .one-piece { background-image: url('https://i.ibb.co/hJpTMCG5/o.jpg') !important; }
-        .attack-on-titan { background-image: url('https://i.ibb.co/pj444tVv/a.jpg') !important; }
-        .my-hero-academia { background-image: url('https://i.ibb.co/jkW0s02B/b.jpg') !important; }
-        .demon-slayer { background-image: url('https://i.ibb.co/SDdzYmXZ/ds.jpg') !important; }
-        .arcane { background-image: url('https://i.ibb.co/JwymXkv8/arcane-capa.png') !important; }
-        .berserk { background-image: url('https://i.ibb.co/3yGzvsvx/ber.png') !important; }
-        .bleach { background-image: url('https://i.ibb.co/HTVq4VHQ/bleach.png') !important; }
-        .cavaleiros-zodiaco { background-image: url('https://i.ibb.co/39V1Xv6r/cdz.png') !important; }
-        .chainsaw-man { background-image: url('https://i.ibb.co/Q3PYtDgt/csm.png') !important; }
-        .evangelion { background-image: url('https://i.ibb.co/HjMwggJ/evan.png') !important; }
-        .genshin-impact { background-image: url('https://i.ibb.co/sJ2RnJcw/genshin.png') !important; }
-        .ghibli { background-image: url('https://i.ibb.co/qM7m81qL/gibli.png') !important; }
-        .haikyuu { background-image: url('https://i.ibb.co/WvBz48th/haiki.png') !important; }
-        .hanako { background-image: url('https://i.ibb.co/VYYCpthJ/hanako.png') !important; }
-        .hello-kitty { background-image: url('https://i.ibb.co/Qv36pgjr/hello.png') !important; }
-        .hunter-x-hunter { background-image: url('https://i.ibb.co/60gnM0Y1/hunter.png') !important; }
-        .jujutsu-kaisen { background-image: url('https://i.ibb.co/4ZvZTjnV/jujutso.png') !important; }
-        .fullmetal { background-image: url('https://i.ibb.co/dd0Pr3q/full.png') !important; }
-        .nanatsu-no-taizai { background-image: url('https://i.ibb.co/m5yQvqSp/nanatsu.png') !important; }
-        .one-punch-man { background-image: url('https://i.ibb.co/tPcgHCGy/onepunch.png') !important; }
-        .pokemon { background-image: url('https://i.ibb.co/LhB8FjKS/pokemon.png') !important; }
-        .procurados-one-piece { background-image: url('https://i.ibb.co/KzwQvymD/wanted.png') !important; }
-        .sailor-moon { background-image: url('https://i.ibb.co/FbBt1vS4/sailor.png') !important; }
-        .solo-leveling { background-image: url('https://i.ibb.co/mrndg3FQ/solo.png') !important; }
-        .spy-x-family { background-image: url('https://i.ibb.co/gMfhTWX1/spy.png') !important; }
-        .tokyo-revengers { background-image: url('https://i.ibb.co/N2TSCC3P/tokyo.png') !important; }        
-        .black-clover { background-image: url('https://i.ibb.co/h1nTmdFz/Black-Clover.png') !important; }
-        .tate-no-yuusha { background-image: url('https://i.ibb.co/7J5hqHpb/Tate-no-Yusha.png') !important; }
-        .fairy-tail { background-image: url('https://i.ibb.co/35xDN3b9/Fairy-Tail.png') !important; }
-        .blue-lock { background-image: url('https://i.ibb.co/pBVGvRtR/Blue-Lock.png') !important; }
-        .dorohedoro { background-image: url('https://i.ibb.co/rR895dXz/Dorohedoro.png') !important; }
-        .dr-stone { background-image: url('https://i.ibb.co/fVwjPNSw/Dr-Stone.png') !important; }
-        .death-note { background-image: url('https://i.ibb.co/V6xj8KF/Death-Note.png') !important; }
-        .kakegurui { background-image: url('https://i.ibb.co/KcJpnKsQ/Kakegurui.png') !important; }
-        .violet-evergarden { background-image: url('https://i.ibb.co/HLjyK0MY/Violet-Evergarden.png') !important; }
-        .yu-yu-hakusho { background-image: url('https://i.ibb.co/20PqFYsc/Yu-Yu-Hakusho.png') !important; }
-        .inuyasha { background-image: url('https://i.ibb.co/HLMq4r5h/Inuyasha.png') !important; }
-        .rurouni-kenshin { background-image: url('https://i.ibb.co/CCt9zyW/Rurouni-Kenshin.png') !important; }
-        .jojos-bizarre-adventure { background-image: url('https://i.ibb.co/ksWMYVWR/Jo-Jos-Bizarre-Adventure.png') !important; }
-        .nana { background-image: url('https://i.ibb.co/JF70B86B/Nana.png') !important; }
-        .vocaloid { background-image: url('https://i.ibb.co/V0ZYGw4z/Vocaloid.png') !important; }
-        .record-of-ragnarok { background-image: url('https://i.ibb.co/XZBFNZGX/Record-of-Ragnarok.png') !important; }
-        .mob-psycho-100 { background-image: url('https://i.ibb.co/pjJF1HRf/Mob-Psycho-100.png') !important; }
-        .frieren { background-image: url('https://i.ibb.co/xSrLmTKw/Frieren.png') !important; }
-        .vagabond { background-image: url('https://i.ibb.co/8nv4GRSN/Vagabond.png') !important; }
-        .cardcaptor-sakura { background-image: url('https://i.ibb.co/Z6bcKQr8/Cardcaptor-Sakura.png') !important; }
-        .sword-art-online { background-image: url('https://i.ibb.co/VW2zQNFW/Sword-Art-Online.png') !important; }
-        .stitch { background-image: url('https://i.ibb.co/6R0Jfd1M/Stitch.png') !important; }
-        .bungo-stray-dogs { background-image: url('https://i.ibb.co/xqJGb3Lr/Bungo-Stray-Dogs.png') !important; }
-        .tokyo-ghoul { background-image: url('https://i.ibb.co/NnFS1V7H/Tokyo-Ghoul.png') !important; }
-        .overlord { background-image: url('https://i.ibb.co/mrr16zH6/Overlord.png') !important; }
-        .hellsing { background-image: url('https://i.ibb.co/xKGH9T7S/Hellsing.png') !important; }
-        .black-butler { background-image: url('https://i.ibb.co/XZqR7c0b/Black-Butler.png') !important; }
-        .animes-variados { background-image: url('https://i.ibb.co/NdZtntV0/Miscelanea.png') !important; }
-        .diarios-de-uma-apotecaria { background-image: url('https://i.ibb.co/qF4SFJbJ/Diarios-de-uma-Apotecaria.png') !important; }
-        .your-name { background-image: url('https://i.ibb.co/Tx1QM7hr/Your-Name.png') !important; }
-        .dandadan { background-image: url('https://i.ibb.co/xKc2T5wk/DanDaDan.png') !important; }
-                              
-        /* Versão para tablets */
-        @media (min-width: 600px) {
-            .buttons-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-                align-items: stretch;
-            }
-            
-            .anime-button {
-                width: 100%; /* Ocupa toda a largura do grid */
-            }
-            
-            header {
-                height: 180px;
-            }
-            
-            .catalog-title {
-                font-size: 3em;
-            }
-        }
-        
-        /* Versão para desktop */
-        @media (min-width: 900px) {
-            .container {
-                max-width: 900px;
-            }
-            
-            .buttons-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 18px;
-            }
-            
-            header {
-                height: 200px;
-            }
-            
-            .catalog-title {
-                font-size: 3.5em;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -220,8 +25,8 @@
         <p class="page-subtitle">Mais de 1500 designs exclusivos organizados por anime. Encontre a placa perfeita para sua decoração!</p>
     </section>
 
-        <div class="buttons-grid">
-            
+    <section class="catalog-section">
+        <div class="catalog-grid">
             <button class="anime-button one-piece" onclick="window.location.href='https://otakucitybr.github.io/One_Piece/'">
                 <span>One Piece</span>
             </button>
@@ -454,6 +259,7 @@
                 <span>Animes Variados</span>
             </button>
         </div>
+    </section>
 
     <footer>
         <h3>💎 QUALIDADE GARANTIDA</h3>
