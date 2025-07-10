@@ -330,3 +330,343 @@ function setupLazyLoading() {
 
 // Inicializar lazy loading
 document.addEventListener('DOMContentLoaded', setupLazyLoading);
+// SISTEMA ONE PIECE SLIDER - OTIMIZADO
+class OnePieceSlider {
+    constructor() {
+        // Lista de imagens One Piece
+        this.images = [
+            "https://i.ibb.co/ksbt0y0w/OP-1.jpg",
+            "https://i.ibb.co/xSmzBw27/OP-2.jpg",
+            "https://i.ibb.co/jScdwdG/OP-3.jpg",
+            "https://i.ibb.co/S7Mt7QYb/OP-4.jpg",
+            "https://i.ibb.co/4g0gZMp8/OP-5.jpg",
+            "https://i.ibb.co/RpncjJ3P/OP-6.jpg",
+            "https://i.ibb.co/n8g8z1bt/OP-7.jpg",
+            "https://i.ibb.co/KzWvYhhC/OP-8.jpg",
+            "https://i.ibb.co/ZpsDvJGC/OP-9.jpg",
+            "https://i.ibb.co/sppZsTZY/OP-10.jpg",
+            "https://i.ibb.co/xqHNtpj5/OP-11.jpg",
+            "https://i.ibb.co/m5BW96Wq/OP-12.jpg",
+            "https://i.ibb.co/kVhP5X4V/OP-13.jpg",
+            "https://i.ibb.co/6dLqbtR/OP-14.jpg",
+            "https://i.ibb.co/Kjdq2jXj/OP-15.jpg",
+            "https://i.ibb.co/p6vd5bkj/OP-16.jpg",
+            "https://i.ibb.co/pvYWCfwd/OP-17.jpg",
+            "https://i.ibb.co/fzZV51VM/OP-18.jpg",
+            "https://i.ibb.co/FLnXhTsH/OP-19.jpg",
+            "https://i.ibb.co/Vcg3VvnT/OP-20.jpg",
+            "https://i.ibb.co/Z6pr2szn/OP-21.jpg",
+            "https://i.ibb.co/Jj9PrTZL/OP-22.jpg",
+            "https://i.ibb.co/W4t13QbJ/OP-23.jpg",
+            "https://i.ibb.co/LDsq8F8M/OP-24.jpg",
+            "https://i.ibb.co/SwnK28n4/OP-25.jpg",
+            "https://i.ibb.co/bMkJgRDM/OP-26.jpg",
+            "https://i.ibb.co/8LN9qZyH/OP-27.jpg",
+            "https://i.ibb.co/RFXRBm8/OP-28.jpg",
+            "https://i.ibb.co/zVdypxFp/OP-29.jpg",
+            "https://i.ibb.co/BVCWVXZX/OP-30.jpg",
+            "https://i.ibb.co/3ysQZTbq/OP-31.jpg",
+            "https://i.ibb.co/4gVYfBRB/OP-32.jpg",
+            "https://i.ibb.co/wN8Q1NSX/OP-33.jpg",
+            "https://i.ibb.co/5h0TCP6H/OP-34.jpg",
+            "https://i.ibb.co/zV7WZDvj/OP-35.jpg",
+            "https://i.ibb.co/S4HjfL6X/OP-36.jpg",
+            "https://i.ibb.co/v4K6RssB/OP-37.jpg",
+            "https://i.ibb.co/fzWc1Rdg/OP-38.jpg",
+            "https://i.ibb.co/b51pjL5Q/OP-39.jpg",
+            "https://i.ibb.co/PzQNdBnQ/OP-40.jpg",
+            "https://i.ibb.co/4ZC9tLys/OP-41.jpg",
+            "https://i.ibb.co/1Yz0m5hp/OP-42.jpg",
+            "https://i.ibb.co/4wrSrCM3/OP-43.jpg",
+            "https://i.ibb.co/3YCXxWLS/OP-45.jpg",
+            "https://i.ibb.co/RLkHL4J/OP-46.jpg",
+            "https://i.ibb.co/m5Rfb6B2/OP-47.jpg",
+            "https://i.ibb.co/C5bFfhS7/OP-48.jpg",
+            "https://i.ibb.co/vxVgK7Zz/OP-49.jpg",
+            "https://i.ibb.co/1JYL5Btk/OP-50.jpg",
+            "https://i.ibb.co/C3Czq8fC/OP-51.jpg",
+            "https://i.ibb.co/JwP6pZR5/OP-52.jpg",
+            "https://i.ibb.co/nNgVNSCy/OP-53.jpg",
+            "https://i.ibb.co/v6FBtyKm/OP-54.jpg",
+            "https://i.ibb.co/JRPnT3LY/OP-55.jpg",
+            "https://i.ibb.co/spQCZvmv/OP-56.jpg",
+            "https://i.ibb.co/0psSbdQD/OP-57.jpg"
+        ];
+
+        this.currentIndex = 0;
+        this.loadingHidden = false;
+        this.imageCache = new Map();
+        this.preloadedImages = new Set();
+        
+        // Elementos DOM
+        this.sliderTrack = document.getElementById('sliderTrack');
+        this.whatsappBtn = document.getElementById('whatsappBtn');
+        this.loadingContainer = document.getElementById('loadingContainer');
+        this.prevBtn = document.getElementById('prevBtn');
+        this.nextBtn = document.getElementById('nextBtn');
+        this.currentPosition = document.getElementById('currentPosition');
+        this.totalImages = document.getElementById('totalImages');
+        this.preloadContainer = document.getElementById('preloadContainer');
+
+        // Verificar se estamos na página One Piece
+        if (!this.sliderTrack || !this.whatsappBtn) {
+            return; // Não inicializar se não estivermos na página correta
+        }
+
+        this.init();
+    }
+
+    init() {
+        console.log('Inicializando OnePieceSlider...');
+        
+        // Configurar total de imagens
+        if (this.totalImages) {
+            this.totalImages.textContent = this.images.length;
+        }
+        
+        // Pré-carregar primeiras imagens
+        this.preloadInitialImages();
+        
+        // Criar slides
+        this.createSlides();
+        
+        // Configurar eventos
+        this.setupEventListeners();
+        
+        // Atualizar posição inicial
+        this.updateSliderPosition();
+        
+        // Iniciar pré-carregamento em background
+        this.startBackgroundPreload();
+        
+        console.log('OnePieceSlider inicializado com sucesso!');
+    }
+
+    preloadInitialImages() {
+        // Pré-carrega as primeiras 5 imagens para carregamento instantâneo
+        const initialCount = Math.min(5, this.images.length);
+        
+        for (let i = 0; i < initialCount; i++) {
+            this.preloadImage(this.images[i]);
+        }
+    }
+
+    preloadImage(src) {
+        return new Promise((resolve, reject) => {
+            if (this.imageCache.has(src)) {
+                resolve(this.imageCache.get(src));
+                return;
+            }
+
+            const img = new Image();
+            img.onload = () => {
+                this.imageCache.set(src, img);
+                this.preloadedImages.add(src);
+                resolve(img);
+            };
+            img.onerror = reject;
+            img.src = src;
+            
+            // Adicionar ao container de pré-carregamento para cache do navegador
+            if (this.preloadContainer) {
+                const preloadImg = img.cloneNode();
+                this.preloadContainer.appendChild(preloadImg);
+            }
+        });
+    }
+
+    startBackgroundPreload() {
+        // Pré-carrega todas as imagens em background após o carregamento inicial
+        setTimeout(() => {
+            this.images.forEach((src, index) => {
+                if (!this.preloadedImages.has(src)) {
+                    // Delay progressivo para não sobrecarregar
+                    setTimeout(() => {
+                        this.preloadImage(src);
+                    }, index * 100);
+                }
+            });
+        }, 1000);
+    }
+
+    createSlides() {
+        this.images.forEach((imgSrc, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'onepiece-slide';
+            slide.dataset.index = index;
+            
+            const img = document.createElement('img');
+            
+            // Se a imagem já está no cache, usar imediatamente
+            if (this.imageCache.has(imgSrc)) {
+                img.src = imgSrc;
+            } else if (index < 3) {
+                // Carregar as primeiras 3 imediatamente
+                img.src = imgSrc;
+            } else {
+                // Lazy load para as outras
+                img.dataset.src = imgSrc;
+                img.loading = "lazy";
+            }
+            
+            img.alt = `One Piece - Placa decorativa ${index + 1}`;
+            
+            slide.appendChild(img);
+            this.sliderTrack.appendChild(slide);
+            slide.style.transform = `translateY(${index * 100}%)`;
+        });
+    }
+
+    updateSliderPosition() {
+        this.sliderTrack.style.transform = `translateY(-${this.currentIndex * 100}%)`;
+        
+        // Atualizar indicador de posição
+        if (this.currentPosition) {
+            this.currentPosition.textContent = this.currentIndex + 1;
+        }
+        
+        // Pré-carregar próximas imagens
+        this.preloadNearbyImages();
+        
+        // Esconder loading na primeira imagem
+        if (this.currentIndex === 0 && !this.loadingHidden) {
+            this.hideLoading();
+        }
+    }
+
+    preloadNearbyImages() {
+        // Pré-carrega imagens próximas (anterior e próximas 2)
+        const indicesToPreload = [
+            this.currentIndex - 1,
+            this.currentIndex + 1,
+            this.currentIndex + 2
+        ].filter(index => index >= 0 && index < this.images.length);
+
+        indicesToPreload.forEach(index => {
+            const src = this.images[index];
+            if (!this.preloadedImages.has(src)) {
+                this.preloadImage(src);
+            }
+        });
+    }
+
+    nextImage() {
+        if (this.currentIndex < this.images.length - 1) {
+            this.currentIndex++;
+            this.updateSliderPosition();
+            this.loadCurrentImage();
+        }
+    }
+
+    prevImage() {
+        if (this.currentIndex > 0) {
+            this.currentIndex--;
+            this.updateSliderPosition();
+            this.loadCurrentImage();
+        }
+    }
+
+    loadCurrentImage() {
+        const currentSlide = this.sliderTrack.children[this.currentIndex];
+        const img = currentSlide.querySelector('img');
+        
+        if (img && img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+        }
+    }
+
+    hideLoading() {
+        if (!this.loadingHidden && this.loadingContainer) {
+            this.loadingContainer.classList.add('hidden');
+            this.loadingHidden = true;
+            console.log('Loading escondido!');
+        }
+    }
+
+    setupEventListeners() {
+        // Botões de navegação
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', () => this.nextImage());
+        }
+        
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => this.prevImage());
+        }
+
+        // Configurar gestos de toque
+        let startY = 0;
+        let isDragging = false;
+        
+        this.sliderTrack.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+            isDragging = true;
+            this.sliderTrack.style.transition = 'none';
+        }, { passive: true });
+        
+        this.sliderTrack.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const moveY = e.touches[0].clientY;
+            const diffY = moveY - startY;
+            this.sliderTrack.style.transform = `translateY(calc(-${this.currentIndex * 100}% + ${diffY}px))`;
+        }, { passive: true });
+        
+        this.sliderTrack.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const endY = e.changedTouches[0].clientY;
+            const diffY = endY - startY;
+            
+            this.sliderTrack.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            
+            if (diffY < -50 && this.currentIndex < this.images.length - 1) {
+                this.nextImage();
+            } else if (diffY > 50 && this.currentIndex > 0) {
+                this.prevImage();
+            } else {
+                this.updateSliderPosition();
+            }
+        }, { passive: true });
+
+        // Navegação por teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                this.prevImage();
+            } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                this.nextImage();
+            }
+        });
+
+        // Botão WhatsApp
+        if (this.whatsappBtn) {
+            this.whatsappBtn.addEventListener('click', () => {
+                const currentImageUrl = this.images[this.currentIndex];
+                const message = `🏴‍☠️ Olá! Quero esta placa do One Piece: ${currentImageUrl}`;
+                const whatsappUrl = `https://wa.me/5511958588616?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            });
+        }
+
+        // Esconder loading quando primeira imagem carregar
+        const firstImage = this.sliderTrack.querySelector('img');
+        if (firstImage) {
+            firstImage.onload = () => this.hideLoading();
+            firstImage.onerror = () => this.hideLoading();
+        }
+        
+        // Fallback para esconder loading
+        setTimeout(() => this.hideLoading(), 3000);
+    }
+}
+
+// Inicializar One Piece Slider quando DOM carregar
+document.addEventListener('DOMContentLoaded', () => {
+    // Verificar se estamos na página One Piece
+    if (document.getElementById('sliderTrack')) {
+        console.log('Página One Piece detectada - inicializando slider...');
+        const onePieceSlider = new OnePieceSlider();
+    }
+});
